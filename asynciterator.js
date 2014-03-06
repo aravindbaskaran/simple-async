@@ -34,7 +34,7 @@
 	};
 	/* Remaining iteration count */
 	AsyncIterator.prototype.remaining = function(){
-		return this.array.length - this.currentIndex;
+		return this.array.length - (this.currentIndex + 1);
 	};
 	/* Step to the next item, i.e. iterate  */
 	AsyncIterator.prototype.step = function(){
