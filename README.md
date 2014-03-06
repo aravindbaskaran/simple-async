@@ -16,10 +16,14 @@ var a = ["a", "b", "c"];
 new AsyncIterator(
     a, function(iterator){
       // step
+      console.log("in step - " + iterator.current() + " - Remaining - " + iterator.remaining());
+      iterator.step();
     }, function(iterator){
       // start
+      console.log("Starting the iteration");
     }, function(iterator){
       // end
+      console.log("Ending the iteration");
     }
 ).step();
 
