@@ -32,9 +32,14 @@ new AsyncIterator(
 Example
 ======
 
-Check out under examples folder(https://github.com/aravindbaskaran/simple-async/tree/master/examples)
+Check out code under examples folder
 
-Dynamic loading images sequentially and showing them on a page
+    Dynamic loading images sequentially and showing them on a page
+    
+Or jsfiddle!
+
+Result - http://jsfiddle.net/aravindbaskaran/K63vt/3/embedded/result/
+Fiddle - http://jsfiddle.net/aravindbaskaran/K63vt/3/
 
 Hope it helps in reducing your rewrites for every project!
 Licensed under Apache v2 - aravind@cloudpact.com
