@@ -1,11 +1,11 @@
 simple-async
 ============
 
-A very lightweight javascript library for async iteration. Very.
+A very lightweight javascript library for async iteration. Callback-chain-free. Zero dependency.
 
 Everytime I needed to do async iteration (for e.g. loading content sequentially from web services), ended up writing different versions of same logic to help. So why not put it up for everyone who needs it.
 
-This library is thin and light weight, easy-to-integrable with any other libraries. And most importantly very simple.
+This library is modular and thin, easy-to-integrate with any libraries. And most importantly very simple.
 
 Usage
 =====
