@@ -39,4 +39,4 @@ Check out two examples under examples folder
 
 
 #####Hope it helps in reducing your rewrites for every project!
-Licensed under Apache v2
+Licensed under Apache v2 - aravind@cloudpact.com
