@@ -28,3 +28,11 @@ new AsyncIterator(
 ).step();
 
 ```
+
+Example
+======
+
+
+
+
+###Hope it helps in reducing your rewrites for every project!
