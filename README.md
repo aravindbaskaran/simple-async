@@ -43,4 +43,5 @@ Result - http://jsfiddle.net/aravindbaskaran/K63vt/3/embedded/result/
 Fiddle - http://jsfiddle.net/aravindbaskaran/K63vt/3/
 
 Hope it helps in reducing your rewrites for every project!
+
 Licensed under Apache v2 - aravind@cloudpact.com
