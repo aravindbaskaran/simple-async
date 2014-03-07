@@ -37,5 +37,5 @@ Check out under examples folder
 Dynamic loading images sequentially and showing them on a page
 
 
-#####Hope it helps in reducing your rewrites for every project!
+Hope it helps in reducing your rewrites for every project!
 Licensed under Apache v2 - aravind@cloudpact.com
