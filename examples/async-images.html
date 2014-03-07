@@ -17,6 +17,7 @@
 				return fragment;
 			}
 			window.onload = function onLoad(){
+				// array of images
 				var images = ["http://i.imgur.com/G368h9n.jpg", "http://i.imgur.com/vCFTB2S.jpg",
 				"http://i.imgur.com/Kjc0qrM.jpg", "http://i.imgur.com/2m6KfBv.jpg",
 				"http://i.imgur.com/7adqDoC.jpg","http://i.imgur.com/OR0Rr5c.jpg", 
@@ -25,37 +26,47 @@
 				var msgEl = document.getElementById("msg");
 				var boardEl = document.getElementById("board");
 				var imgTemplate = "<img class='loading'/>"
-				var imageObj = new Image();
+				var imageObj;
 
 				function start(itr){
 					console.log("Starting...");
 					console.time("Total load time");
 					msgEl.innerHTML = "Loading...";
+					imageObj = new Image();
 				}
 				function end(itr){
 					msgEl.innerHTML = "The transformation is complete! ;)";
 					console.log("Ending");
 					console.timeEnd("Total load time");
+					// destroy image loading object
+					delete imageObj;
 				}
+				// magic stepper function
 				function step(itr){
+					// Get current item in array
 					var current = itr.current();
 					console.log("Loading - " + current);
 					console.time("Load time " + itr.currentIndex);
 					var imgFrag = createElem(imgTemplate);
 					var imgElem = imgFrag.children[0];
 					boardEl.appendChild(imgFrag);
+					// load image
 					imageObj.onload = function(){
 						console.timeEnd("Load time " + itr.currentIndex);
 						console.log("Finished loading - " + current + ", Remaining - " + itr.remaining());
 						imgElem.src = current;
 						imgElem.className = "done";
+						// step 
 						itr.step();
 					}
 					imageObj.onError = function(){
 						console.timeEnd("Load time " + itr.currentIndex);
 						console.log("Error loading - " + current + ", Remaining - " + itr.remaining());
+						imgElem.className = "error";
+						// step 
 						itr.step();
 					}
+					// begin load image
 					imageObj.src = current;
 				}
 				new AsyncIterator(images, step, start, end).step();
