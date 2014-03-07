@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Simple-async by aravindbaskaran</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Simple-async</h1>
+        <h2>A very lightweight javascript library for async iteration. Callback-chain-free. Zero dependency</h2>
+        <a href="https://github.com/aravindbaskaran/simple-async" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="simple-async" class="anchor" href="#simple-async"><span class="octicon octicon-link"></span></a>simple-async</h1>
+
+<p>A very lightweight javascript library for async iteration. Callback-chain-free. Zero dependency.</p>
+
+<p>Everytime I needed to do async iteration (for e.g. loading content sequentially from web services), ended up writing different versions of same logic to help. So why not put it up for everyone who needs it.</p>
+
+<p>This library is modular and thin, easy-to-integrate with any libraries. And most importantly very simple.</p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">];</span>
+<span class="c1">// You could do a for-loop, but why do that when you can do it async!</span>
+<span class="k">new</span> <span class="nx">AsyncIterator</span><span class="p">(</span>
+    <span class="nx">a</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">iterator</span><span class="p">){</span>
+      <span class="c1">// step</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"in step - "</span> <span class="o">+</span> <span class="nx">iterator</span><span class="p">.</span><span class="nx">current</span><span class="p">()</span> <span class="o">+</span> <span class="s2">" - Remaining - "</span> <span class="o">+</span> <span class="nx">iterator</span><span class="p">.</span><span class="nx">remaining</span><span class="p">());</span>
+      <span class="nx">iterator</span><span class="p">.</span><span class="nx">step</span><span class="p">();</span>
+    <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">iterator</span><span class="p">){</span>
+      <span class="c1">// start</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Starting the iteration"</span><span class="p">);</span>
+    <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">iterator</span><span class="p">){</span>
+      <span class="c1">// end</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Ending the iteration"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">).</span><span class="nx">step</span><span class="p">();</span>
+
+</pre></div>
+
+<h1>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h1>
+
+<p>Check out under examples folder</p>
+
+<p>Dynamic loading images sequentially and showing them on a page</p>
+
+<h5>
+<a name="hope-it-helps-in-reducing-your-rewrites-for-every-project" class="anchor" href="#hope-it-helps-in-reducing-your-rewrites-for-every-project"><span class="octicon octicon-link"></span></a>Hope it helps in reducing your rewrites for every project!</h5>
+
+<p>Licensed under Apache v2 - <a href="mailto:aravind@cloudpact.com">aravind@cloudpact.com</a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/aravindbaskaran/simple-async/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/aravindbaskaran/simple-async/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/aravindbaskaran/simple-async"></a> is maintained by <a href="https://github.com/aravindbaskaran">aravindbaskaran</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
