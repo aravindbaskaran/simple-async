@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>AsyncIterator Example - Image laoding(simple-async)</title>
+		<script>
+			// minified AsynIterator here
+			!function(){function a(){}function b(b,c,d,e){this.array=b,this.currentIndex=-1,this.stepFn=c||a,this.startFn=d||a,this.endFn=e||a}b.prototype.isStarting=function(){return 0===this.currentIndex},b.prototype.isEnding=function(){return this.currentIndex===this.array.length},b.prototype.current=function(){return this.array[this.currentIndex]},b.prototype.size=function(){return this.array.length},b.prototype.remaining=function(){return this.array.length-(this.currentIndex+1)},b.prototype.step=function(){if(this.currentIndex++,this.isStarting())this.startFn(this);else if(this.isEnding())return this.endFn(this),void 0;this.stepFn(this)},window.AsyncIterator=b}();
+		</script>
+		<script>
+			function createElem(htmlStr) {
+				var fragment = document.createDocumentFragment(),
+				temp = document.createElement('div');
+				temp.innerHTML = htmlStr;
+				while (temp.firstChild) {
+					fragment.appendChild(temp.firstChild);
+				}
+				return fragment;
+			}
+			window.onload = function onLoad(){
+				var images = ["http://i.imgur.com/G368h9n.jpg", "http://i.imgur.com/vCFTB2S.jpg",
+				"http://i.imgur.com/Kjc0qrM.jpg", "http://i.imgur.com/2m6KfBv.jpg",
+				"http://i.imgur.com/7adqDoC.jpg","http://i.imgur.com/OR0Rr5c.jpg", 
+				"http://i.imgur.com/pvz4WnO.jpg","http://i.imgur.com/mnTcyNz.jpg", 
+				"http://i.imgur.com/6yPgGqV.jpg","http://i.imgur.com/1KjZ9Sa.jpg"]
+				var msgEl = document.getElementById("msg");
+				var boardEl = document.getElementById("board");
+				var imgTemplate = "<img class='loading'/>"
+				var imageObj = new Image();
+
+				function start(itr){
+					console.log("Starting...");
+					console.time("Total load time");
+					msgEl.innerHTML = "Loading...";
+				}
+				function end(itr){
+					msgEl.innerHTML = "The transformation is complete! ;)";
+					console.log("Ending");
+					console.timeEnd("Total load time");
+				}
+				function step(itr){
+					var current = itr.current();
+					console.log("Loading - " + current);
+					console.time("Load time " + itr.currentIndex);
+					var imgFrag = createElem(imgTemplate);
+					var imgElem = imgFrag.children[0];
+					boardEl.appendChild(imgFrag);
+					imageObj.onload = function(){
+						console.timeEnd("Load time " + itr.currentIndex);
+						console.log("Finished loading - " + current + ", Remaining - " + itr.remaining());
+						imgElem.src = current;
+						imgElem.className = "done";
+						itr.step();
+					}
+					imageObj.onError = function(){
+						console.timeEnd("Load time " + itr.currentIndex);
+						console.log("Error loading - " + current + ", Remaining - " + itr.remaining());
+						itr.step();
+					}
+					imageObj.src = current;
+				}
+				new AsyncIterator(images, step, start, end).step();
+			};
+		</script>
+	</head>
+	<body>
+		<header>
+			<h2>Darth vader makes such a good dad</h2>
+			<h4>Courtesy <a href="http://imgur.com/gallery/bmpVg">imgur</a></h4>
+		</header>
+		<div id="main" role="main">
+			<div id="msg"></div>
+			<div id="board"></div>
+		</div>
+		<footer>
+			<h3>AsyncIterator example</h3>
+			<h4>Apache v2 license - <a href="mailto:aravind@cloudpact.com">aravind@cloudpact.com</a></h4>
+		</footer>
+	</body>
+	<style>
+		body{
+			max-width: 500px;
+			margin: 20px auto;
+		}
+		header{}
+		footer{}
+		#main{}
+		#id{}
+		#msg{}
+		#board{}
+		img{
+			max-width: 500px;
+			display: block;
+			margin: 10px auto;
+			border: 1px solid #DDD;
+			min-height: 50px;
+			-webkit-transition: opacity 500ms ease;
+			-webkit-transition-delay: 200ms;
+		}
+		.loading{
+			opacity: 0;
+		}
+		.done{
+			opacity: 1;
+		}
+	</style>
+</html>

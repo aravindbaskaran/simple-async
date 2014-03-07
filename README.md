@@ -32,10 +32,9 @@ new AsyncIterator(
 Example
 ======
 
-Check out two examples under examples folder
+Check out under examples folder
 
-1. Dynamic content load from a web service and sequence it
-2. Dynamic loading images sequentially and showing them on a page
+Dynamic loading images sequentially and showing them on a page
 
 
 #####Hope it helps in reducing your rewrites for every project!
