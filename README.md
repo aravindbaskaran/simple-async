@@ -38,9 +38,9 @@ Check out code under examples folder
     
 Or jsfiddle!
 
-Result - http://jsfiddle.net/aravindbaskaran/K63vt/3/embedded/result/
+Result - http://jsfiddle.net/aravindbaskaran/K63vt/embedded/result/
 
-Fiddle - http://jsfiddle.net/aravindbaskaran/K63vt/3/
+Fiddle - http://jsfiddle.net/aravindbaskaran/K63vt/
 
 Hope it helps in reducing your rewrites for every project!
 
