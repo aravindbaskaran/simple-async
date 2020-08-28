@@ -44,4 +44,4 @@ Fiddle - http://jsfiddle.net/aravindbaskaran/K63vt/
 
 Hope it helps in reducing your rewrites for every project!
 
-Licensed under Apache v2 - aravind@cloudpact.com
+Licensed under Apache v2
